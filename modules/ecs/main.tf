@@ -1,7 +1,5 @@
 resource "aws_ecs_cluster" "main" {
   name = var.cluster_name
-  container_definitions = file("${path.module}/task-definitions/patient-service.json")
-
 }
 
 resource "aws_ecs_task_definition" "app" {
