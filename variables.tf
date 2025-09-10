@@ -9,3 +9,4 @@ variable "vpc_cidr" {
 variable "cluster_name" {
   default = "my-fargate-cluster"
 }
+
