@@ -30,15 +30,15 @@ jobs:
       #   id: fmt
       #   run: terraform fmt -check
 
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate
+      # - name: Terraform Validate
+      #   id: validate
+      #   run: terraform validate
 
-      - name: Terraform Plan
-        id: plan
-        # if: github.event_name == 'pull_request'
-        run: terraform plan -no-color
-        # env:
+      # - name: Terraform Plan
+      #   id: plan
+      #   # if: github.event_name == 'pull_request'
+      #   run: terraform plan -no-color
+      #   # env:
         #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for commenting on PRs
 
       # - name: Terraform Apply
