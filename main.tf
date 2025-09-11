@@ -20,3 +20,14 @@ module "alb" {
   public_subnets = module.vpc.public_subnets
   target_group_arn = module.ecs.target_group_arn
 }
+
+module "ecr" {
+  source               = "./modules/ecr"
+  name                 = "ecs-fargate-repo"
+  image_tag_mutability = "IMMUTABLE"
+  scan_on_push         = true
+  tags = {
+    Environment = "dev"
+    Project     = "ecs-app"
+  }
+}
