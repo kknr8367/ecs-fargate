@@ -12,7 +12,7 @@ resource "aws_ecs_task_definition" "app" {
   container_definitions    = jsonencode([
     {
       name      = "app"
-      image     = "nginx"
+      image     = "nginx:stable-perl"
       essential = true
       portMappings = [
         {
