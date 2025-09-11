@@ -30,23 +30,23 @@ jobs:
       #   id: fmt
       #   run: terraform fmt -check
 
-      # - name: Terraform Validate
-      #   id: validate
-      #   run: terraform validate
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
 
-      # - name: Terraform Plan
-      #   id: plan
-      #   # if: github.event_name == 'pull_request'
-      #   run: terraform plan -no-color
-      #   # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for commenting on PRs
+      - name: Terraform Plan
+        id: plan
+        # if: github.event_name == 'pull_request'
+        run: terraform plan -no-color
+        # env:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for commenting on PRs
 
       # - name: Terraform Apply
       #   id: apply
       #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
       #   run: terraform apply -auto-approve
 
-      - name: Terraform destroy
-        id: destroy
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform destroy -auto-approve
+      # - name: Terraform destroy
+      #   id: destroy
+      #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      #   run: terraform destroy -auto-approve
