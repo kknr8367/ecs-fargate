@@ -28,31 +28,71 @@ jobs:
         with:
           terraform_version: 1.5.0
 
-      - name: Terraform Init
-        id: init
+ 
+      - name: Terraform Format Check
+        run: terraform fmt -check -recursive
+        continue-on-error: false
+         
+      - name: Terraform Init (Dev)
+        working-directory: ./environments/dev
         run: terraform init
-
-      # - name: Terraform Format
-      #   id: fmt
-      #   run: terraform fmt -check
-
+ 
       - name: Terraform Validate
-        id: validate
+        working-directory: ./environments/dev
         run: terraform validate
-
+ 
+      - name: Terraform Import
+        working-directory: ./environments/dev
+        run: terraform import 'module.s3.aws_s3_bucket.bucket' mxu-np-lv-sqlserver-backuprestore1
+ 
       - name: Terraform Plan
-        id: plan
-        # if: github.event_name == 'pull_request'
+        working-directory: ./environments/dev
         run: terraform plan -no-color
-        # env:
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for commenting on PRs
+        continue-on-error: false
+ 
+      - name: Terraform State List
+        working-directory: ./environments/dev
+        run: terraform state list
+ 
 
-      # - name: Terraform Apply
-      #   id: apply
+
+
+
+
+
+
+
+
+
+
+
+
+
+      # - name: Terraform Init
+      #   id: init
+      #   run: terraform init
+
+      # # - name: Terraform Format
+      # #   id: fmt
+      # #   run: terraform fmt -check
+
+      # - name: Terraform Validate
+      #   id: validate
+      #   run: terraform validate
+
+      # - name: Terraform Plan
+      #   id: plan
+      #   # if: github.event_name == 'pull_request'
+      #   run: terraform plan -no-color
+      #   # env:
+      #     # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required for commenting on PRs
+
+      # # - name: Terraform Apply
+      # #   id: apply
+      # #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      # #   run: terraform apply -auto-approve
+
+      # - name: Terraform destroy
+      #   id: destroy
       #   if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-      #   run: terraform apply -auto-approve
-
-      - name: Terraform destroy
-        id: destroy
-        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform destroy -auto-approve
+      #   run: terraform destroy -auto-approve
