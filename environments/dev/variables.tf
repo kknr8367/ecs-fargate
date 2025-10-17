@@ -27,11 +27,11 @@ variable "project" {
   default     = "Crop Science LabVantage"
 }
 
-variable "acl" {
-  description = "The canned ACL to apply"
-  type        = string
-  default     = "private"
-}
+# variable "acl" {
+#   description = "The canned ACL to apply"
+#   type        = string
+#   default     = "private"
+# }
  
 variable "tags" {
   description = "tags"

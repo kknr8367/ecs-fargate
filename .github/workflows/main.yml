@@ -41,9 +41,9 @@ jobs:
         working-directory: ./environments/dev
         run: terraform validate
  
-      - name: Terraform Import
-        working-directory: ./environments/dev
-        run: terraform import 'module.s3_bucket.aws_s3_bucket.bucket' mxu-np-lv-sqlserver-backuprestore1
+      # - name: Terraform Import
+      #   working-directory: ./environments/dev
+      #   run: terraform import 'module.s3_bucket.aws_s3_bucket.bucket' mxu-np-lv-sqlserver-backuprestore1
  
       - name: Terraform Plan
         working-directory: ./environments/dev

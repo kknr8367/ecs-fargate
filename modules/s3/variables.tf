@@ -3,10 +3,10 @@ variable "bucket_name" {
   type        = string
 }
  
-variable "acl" {
-  description = "The canned ACL to apply"
-  type        = string
-}
+# variable "acl" {
+#   description = "The canned ACL to apply"
+#   type        = string
+# }
  
 variable "tags" {
   description = "A map of tags to assign to the bucket"
