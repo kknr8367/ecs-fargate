@@ -26,3 +26,10 @@ variable "project" {
   type        = string
   default     = "Crop Science LabVantage"
 }
+
+variable "acl" {
+  description = "The canned ACL to apply"
+  type        = string
+  default     = "private"
+}
+ 

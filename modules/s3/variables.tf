@@ -6,7 +6,6 @@ variable "bucket_name" {
 variable "acl" {
   description = "The canned ACL to apply"
   type        = string
-  default     = "private"
 }
  
 variable "tags" {
