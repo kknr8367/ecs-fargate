@@ -33,3 +33,8 @@ variable "acl" {
   default     = "private"
 }
  
+variable "tags" {
+  description = "tags"
+  type        = map(string)
+  default     = {}
+}
