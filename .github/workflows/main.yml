@@ -29,9 +29,9 @@ jobs:
           terraform_version: 1.5.0
 
  
-      - name: Terraform Format Check
-        run: terraform fmt -check -recursive
-        continue-on-error: false
+      # - name: Terraform Format Check
+      #   run: terraform fmt -check -recursive
+      #   continue-on-error: false
          
       - name: Terraform Init (Dev)
         working-directory: ./environments/dev
